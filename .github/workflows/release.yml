@@ -28,3 +28,27 @@ jobs:
 
       - name: List sha256 sums
         run: sha256sum dist/*
+
+      - name: Store build artifacts
+        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8
+        with:
+          name: build-artifacts
+          path: dist
+
+  upload:
+    runs-on: ubuntu-latest
+    environment: release
+    needs: build
+    steps:
+      - name: Download artifacts from build-artifacts
+        uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741
+        with:
+          name: build-artifacts
+          path: dist
+
+      - name: Publish binary wheels and tar.gz to Test PyPI
+        uses: pypa/gh-action-pypi-publish@717ba43cfbb0387f6ce311b169a825772f54d295
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_TOKEN }}
+          repository_url: https://test.pypi.org/legacy/
