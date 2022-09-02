@@ -11,10 +11,10 @@ build-backend = "hatchling.build"
 include = [ "/src", "/requirements-build.txt" ]
 
 [project]
-name = "example_package_YOUR_USERNAME_HERE"
+name = "tutorial_base_mv_2"
 version = "0.0.1"
 authors = [
-  { name="Example Author", email="author@example.com" },
+  { name="Martin Vrachev", email="mvrachev@vmware.com" },
 ]
 description = "Package created during OSS Europe 2022 tutorial"
 readme = "README.md"
@@ -27,5 +27,5 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/pypa/sampleproject"
-"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
+"Homepage" = "https://github.com/MVrachev/tutorial-base"
+"Bug Tracker" = "https://github.com/MVrachev/tutorial-base/issues"
